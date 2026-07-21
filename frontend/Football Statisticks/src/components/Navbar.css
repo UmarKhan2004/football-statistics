@@ -1,0 +1,127 @@
+
+/* ================= NAVBAR ================= */
+
+.Navbar{
+    width:100%;
+    height:80px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 60px;
+
+    background:#111827;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-logo img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+}
+
+/* ================= LINKS ================= */
+
+.nav-links ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#d1d5db;
+    font-size:16px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#22c55e;
+}
+
+/* ================= SEARCH ================= */
+
+.search-bar input{
+    width:230px;
+    padding:12px 18px;
+
+    border:none;
+    outline:none;
+
+    border-radius:30px;
+
+    background:#1f2937;
+
+    color:white;
+
+    transition:.3s;
+}
+
+.search-bar input::placeholder{
+    color:#9ca3af;
+}
+
+.search-bar input:focus{
+    box-shadow:0 0 12px #22c55e;
+}
+
+/* ================= BUTTON ================= */
+
+.sign-up-btn a{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#22c55e;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.sign-up-btn a:hover{
+
+    background:#16a34a;
+
+    transform:translateY(-2px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .Navbar{
+
+        flex-direction:column;
+
+        height:auto;
+
+        gap:20px;
+
+        padding:20px;
+    }
+
+    .nav-links ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    .search-bar input{
+
+        width:100%;
+    }
+}

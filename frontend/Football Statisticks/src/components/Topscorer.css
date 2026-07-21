@@ -1,0 +1,320 @@
+/* ================= BENTO ================= */
+
+.bento-container{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:2fr 1.3fr;
+
+    gap:25px;
+}
+
+/* ================= COMMON CARD ================= */
+
+.top-scorer,
+.league-table,
+.recent-matches,
+.top-player{
+
+    background:#1e293b;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* ================= SECTION HEADER ================= */
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.section-header h3{
+
+    color:white;
+
+    font-size:22px;
+}
+
+.section-header a{
+
+    color:#22c55e;
+
+    text-decoration:none;
+
+    font-size:15px;
+}
+
+.section-header a:hover{
+
+    text-decoration:underline;
+}
+
+/* ================= TOP SCORER ================= */
+
+.top-scorer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+.top-scorer h3{
+
+    margin-bottom:10px;
+
+    color:white;
+}
+
+.topScorer-card{
+
+    display:flex;
+
+    align-items:center;
+margin-bottom: 5px;
+    gap:18px;
+
+    background:#111827;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    transition:.3s;
+}
+
+.topScorer-card:hover{
+
+    transform:translateX(8px);
+
+    background:#22c55e;
+}
+
+.topScorer-card img{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid white;
+}
+
+.topScorer-card h4{
+
+    flex:1;
+
+    color:white;
+
+    font-size:17px;
+}
+
+.topScorer-card h2{
+
+    color:#22c55e;
+}
+
+.topScorer-card:hover h2{
+
+    color:white;
+}
+
+.topScorer-card p{
+
+    color:#cbd5e1;
+}
+
+/* ================= LEAGUE TABLE ================= */
+
+/* ================= LEAGUE TABLE ================= */
+
+.league-table{
+    background:#1e293b;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.section-header h3{
+    color:#fff;
+    font-size:24px;
+}
+
+.section-header a{
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.section-header a:hover{
+    text-decoration:underline;
+}
+
+/* ================= TABLE ================= */
+
+.standings-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.standings-table thead{
+    border-bottom:2px solid rgba(255,255,255,.08);
+}
+
+.standings-table th{
+    padding:14px 8px;
+    text-align:left;
+    color:#cbd5e1;
+    font-size:15px;
+}
+
+.standings-table td{
+    padding:15px 8px;
+    color:white;
+}
+
+.standings-table tbody tr{
+    transition:.3s;
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.standings-table tbody tr:hover{
+    background:#273449;
+}
+
+.standings-table tbody tr:last-child{
+    border-bottom:none;
+}
+
+.standings-table td:first-child{
+    color:#22c55e;
+    font-weight:bold;
+}
+/* ================= TOP PLAYER ================= */
+
+.top-player{
+
+    min-height:250px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+.bento-container{
+
+grid-template-columns:1fr;
+
+}
+
+}
+/* ================= RECENT MATCHES ================= */
+
+.recent-matches{
+
+    background:#1e293b;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    margin-top:25px;
+}
+
+/* Match Card */
+
+.match-card{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 2fr 1.5fr;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#111827;
+
+    margin-bottom:15px;
+
+    padding:18px 20px;
+
+    border-radius:14px;
+
+    transition:.3s;
+
+    cursor:pointer;
+}
+
+.match-card:hover{
+
+    transform:translateX(8px);
+
+    background:#22c55e;
+
+    color:white;
+}
+
+.match-card span{
+
+    color:#e5e7eb;
+
+    font-weight:500;
+}
+
+.match-card span:nth-child(2){
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#22c55e;
+}
+
+.match-card:hover span:nth-child(2){
+
+    color:white;
+}
+
+.match-card span:last-child{
+
+    text-align:right;
+
+    color:#94a3b8;
+
+    font-size:14px;
+}
+
+.match-card:hover span:last-child{
+
+    color:white;
+}

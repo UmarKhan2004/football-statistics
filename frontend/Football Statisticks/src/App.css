@@ -1,0 +1,69 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+.hero{
+    display: grid;
+    grid-template-columns:1fr 3fr;
+    gap: 15px;
+    margin: 5px;
+} 
+.side-bar{
+border: 1px solid;
+}
+.main-bar{
+    border: 1px solid;
+}
+.stats-highlight{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+
+}
+
+.stats-cards{
+    background:#1e293b;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding: 35px;
+    transition:all 0.3s ease;
+}
+
+.stats-cards:hover{
+    transform:translateY(-8px) scale(1.02);
+    border-color:#22c55e;
+    box-shadow:0 15px 30px rgba(34,197,94,0.3);
+}
+
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* ================= MAIN BAR ================= */
+
+.hero{
+    display:flex;
+}
+
+.main-bar{
+    flex:1;
+    padding:40px;
+    background:#0f172a;
+    min-height:calc(100vh - 80px);
+}
+
+.main-bar h1{
+    font-size:38px;
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.main-bar > p{
+    color:#9ca3af;
+    font-size:17px;
+    margin-bottom:35px;
+}
+
+
