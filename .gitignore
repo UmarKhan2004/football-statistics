@@ -2,16 +2,16 @@
 # Python / Django
 # =========================
 Backend/venv/
-Backend/__pycache__/
+Backend/**/__pycache__/
 Backend/**/*.py[cod]
-Backend/db.sqlite3
+Backend/myproject/db.sqlite3
 Backend/.env
 
 # =========================
 # React / Vite
 # =========================
-frontend/node_modules/
-frontend/dist/
+frontend/**/node_modules/
+frontend/**/dist/
 frontend/.env
 
 # =========================
