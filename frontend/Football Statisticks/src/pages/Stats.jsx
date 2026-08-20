@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import { FootballContext } from "../components/FootballContext";
+import React from "react";
+
 import "./Stats.css"
-function Stats() {
-    const { player, loading } = useContext(FootballContext)
-    const playerData = Array.isArray(player) ? player[0] : player;
-    if (loading || !playerData) return <h2>Loading...</h2>
+function Stats({playerData}) {
+  
     const statsData = [
         { label: "Goals", value: playerData.goals, max: 80 },
         { label: "Assists", value: playerData.assists, max: 120 },

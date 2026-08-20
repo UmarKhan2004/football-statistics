@@ -11,6 +11,7 @@ import { FaTrophy,FaSave,FaCalendar, FaFootballBall } from "react-icons/fa";
 import { FootballContext } from "../components/FootballContext";
 function League() {
     const{league,team,match}=useContext(FootballContext)
+    console.log(league)
     const completedMatches=match.filter(m=>m.completed)
     const totalGoals=completedMatches.reduce((total,m)=>total+m.home_score+m.away_score,0)
 const aveargeGoals=completedMatches.length>0?(totalGoals/completedMatches.length).toFixed(2):0

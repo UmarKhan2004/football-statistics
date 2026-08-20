@@ -161,17 +161,17 @@ margin-bottom: 5px;
 }
 
 .section-header h3{
-    color:#fff;
+    color:#0f0f0f;
     font-size:24px;
 }
 
-.section-header a{
+.section-header Link{
     color:#22c55e;
     text-decoration:none;
     font-weight:600;
 }
 
-.section-header a:hover{
+.section-header Link:hover{
     text-decoration:underline;
 }
 
@@ -189,13 +189,13 @@ margin-bottom: 5px;
 .standings-table th{
     padding:14px 8px;
     text-align:left;
-    color:#cbd5e1;
+    color:#1e1e1f;
     font-size:15px;
 }
 
 .standings-table td{
     padding:15px 8px;
-    color:white;
+    color:rgb(36, 35, 35);
 }
 
 .standings-table tbody tr{

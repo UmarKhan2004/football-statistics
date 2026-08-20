@@ -1,0 +1,307 @@
+/* =========================
+   PLAYERS PAGE
+========================= */
+
+.players-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.players-page .players-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.players-page .players-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.players-page .players-search {
+    width: 260px;
+    padding: 11px 15px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background: white;
+    color: #111827;
+
+    font-size: 14px;
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.players-page .players-search:focus {
+    border-color: #22c55e;
+}
+
+
+/* =========================
+   PLAYERS GRID
+========================= */
+
+.players-page .players-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================
+   PLAYER CARD
+========================= */
+
+.players-page .player-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.players-page .player-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   PLAYER IMAGE
+========================= */
+
+.players-page .player-card-image {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    overflow: hidden;
+}
+
+.players-page .player-card-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.players-page .player-card-image svg {
+    font-size: 65px;
+    color: #94a3b8;
+}
+
+
+/* =========================
+   PLAYER NAME
+========================= */
+
+.players-page .player-card h2 {
+    margin: 0 0 5px;
+
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #111827;
+}
+
+
+/* =========================
+   POSITION
+========================= */
+
+.players-page .player-card-position {
+    margin: 0 0 18px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    color: #64748b;
+}
+
+
+/* =========================
+   PLAYER STATS
+========================= */
+
+.players-page .player-card-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+.players-page .player-stat {
+    padding: 10px;
+
+    text-align: center;
+
+    background: #f8fafc;
+
+    border-radius: 8px;
+}
+
+.players-page .player-stat span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 12px;
+
+    color: #64748b;
+}
+
+.players-page .player-stat strong {
+    font-size: 18px;
+
+    color: #111827;
+}
+
+
+/* =========================
+   VIEW PLAYER BUTTON
+========================= */
+
+.players-page .player-card-link {
+    display: block;
+
+    width: 100%;
+
+    padding: 10px 0;
+
+    text-align: center;
+
+    background: #22c55e;
+
+    color: white;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: background 0.2s ease;
+}
+
+.players-page .player-card-link:hover {
+    background: #16a34a;
+}
+
+
+/* =========================
+   NO RESULTS
+========================= */
+
+.players-page .players-message {
+    padding: 40px;
+
+    text-align: center;
+
+    color: #64748b;
+}
+
+
+/* =========================
+   LARGE TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .players-page .players-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+    .players-page {
+        padding: 20px;
+    }
+
+    .players-page .players-header {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 15px;
+    }
+
+    .players-page .players-search {
+        width: 100%;
+    }
+
+    .players-page .players-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .players-page {
+        padding: 15px;
+    }
+
+    .players-page .players-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .players-page .player-card {
+        padding: 18px;
+    }
+
+}

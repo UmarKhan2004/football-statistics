@@ -4,8 +4,13 @@
 Backend/venv/
 Backend/**/__pycache__/
 Backend/**/*.py[cod]
-Backend/myproject/db.sqlite3
-Backend/.env
+Backend/myproject/db*.sqlite3
+Backend/myproject/.env
+Backend/**/staticfiles/
+Backend/**/media/
+
+*.pyc
+__pycache__/
 
 # =========================
 # React / Vite

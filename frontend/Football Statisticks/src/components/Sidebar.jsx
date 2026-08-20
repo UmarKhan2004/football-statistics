@@ -27,9 +27,7 @@ setIsOpen(!isOpen)
         <li><NavLink to="/"><FaHome /> Dashboard</NavLink></li>
         <li><NavLink to=""><FaUsers /> Players</NavLink></li>
         <li><NavLink to="/team"><FaShieldAlt /> Teams</NavLink></li>
-        <li><NavLink to="/match"><FaFutbol /> Top Scorers</NavLink></li>
-        <li><NavLink to="/statistics"><FaChartBar /> Statistics</NavLink></li>
-        <li><NavLink to="/bookmark"><FaBookmark /> Bookmark</NavLink></li>
+        <li><NavLink to="/match"><FaFutbol /> Matches</NavLink></li>
       </ul>
     </div>
     </>

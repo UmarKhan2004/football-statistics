@@ -25,14 +25,16 @@
     margin-bottom:25px;
 }
 
-.player-image-container{
-    width:220px;
-    height:260px;
-    background:#1e293b;
-    border-radius:15px;
-    overflow:hidden;
-    border:2px solid #22c55e;
-    flex-shrink:0;
+.player-image-container {
+    width: 220px;
+    height: 260px;
+    border: 2px solid #20e875;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .player-image-container img{
@@ -40,7 +42,10 @@
     height:100%;
     object-fit:cover;
 }
-
+.player-placeholder {
+    font-size: 100px;
+    color: #bdbdbd;
+}
 .player-info{
     flex:1;
 }
@@ -158,33 +163,44 @@
 /* ===========================
    NAVIGATION
 =========================== */
-
-.player-nav{
-    margin-bottom:30px;
+.player-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
 }
 
-.player-nav ul{
-    display:flex;
-    list-style:none;
-    gap:15px;
-    flex-wrap:wrap;
-    padding:0;
+.player-nav button {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    font-size: 15px;
+    padding: 15px 5px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
 }
 
-.player-nav a{
-    text-decoration:none;
-    color:#cbd5e1;
-    padding:12px 18px;
-    background:#111827;
-    border-radius:10px;
-    transition:.3s;
+.player-nav button:hover {
+    color: white;
 }
 
-.player-nav a:hover{
-    background:#22c55e;
-    color:#fff;
+.player-nav button.active-tab {
+    color: #20e875;
+    border-bottom: 2px solid #20e875;
 }
 
+.tab-content {
+    margin-top: 25px;
+    padding: 25px;
+    background: #1b2638;
+    border-radius: 12px;
+}
+
+.tab-content h2 {
+    margin-top: 0;
+}
 /* ===========================
    STATS
 =========================== */

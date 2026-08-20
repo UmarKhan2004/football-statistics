@@ -4,14 +4,14 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Statscard from '../components/Statscard'
 import Topscorer from '../components/Topscorer'
-function Statistics(){
-    return(
+function Statistics() {
+    return (
         <>
-        <Navbar/>
-              <section className="hero">
-        <Sidebar />
-       <Mainbar />
-      </section>
+            <Navbar />
+            <section className="hero">
+                <Sidebar />
+                <Mainbar />
+            </section>
 
         </>
     )

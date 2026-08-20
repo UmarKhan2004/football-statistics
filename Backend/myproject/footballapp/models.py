@@ -24,7 +24,7 @@ class Team(models.Model):
     league = models.ForeignKey(
     League,
     on_delete=models.CASCADE,
-    related_name="teams",
+    related_name="teams",   
     null=True,
     blank=True
 )
@@ -105,4 +105,26 @@ class TeamStanding(models.Model):
     loss=models.PositiveIntegerField(default=0)
     class Meta:
         unique_together=("team","league")        
-    
+class Transfer(models.Model):
+    player=models.ForeignKey(Player,on_delete=models.CASCADE)
+    team_from=models.ForeignKey(Team,on_delete=models.SET_NULL,null=True,related_name="transfer_out")
+    team_to=models.ForeignKey(Team,on_delete=models.SET_NULL,null=True,related_name="transfer_in")
+    transfer_fee=models.DecimalField(max_digits=12,decimal_places=2,null=True,blank=True)
+    transfer_type=models.CharField(max_length=120,choices=[
+        ("Free","Free"),
+        ("Loan","Loan"),
+        ("Permanent","Permanent")
+    ])
+    transfer_status=models.CharField(max_length=120,choices=[
+        ("Rumour","Rumour"),
+        ("FreeAgent","FreeAgent"),
+        ("Loan","Loan"),
+        ("OfficIal","OfficIal")   
+    ])
+    created_at=models.DateTimeField(auto_now_add=True)
+    transfer_date=models.DateField(null=True,blank=True)
+    league=models.ForeignKey(League,on_delete=models.CASCADE,null=True,blank=True )
+    def __str__(self):  
+        team_from=self.team_from.name if self.team_from else "Unknown"
+        team_to=self.team_to.name if self.team_to else "Unknown"
+        return f"{self.player.name}:{team_from} →{team_to}"
