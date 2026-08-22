@@ -136,14 +136,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-CORS_ALLOWED_ORIGINS = [
-    origin.strip()
-    for origin in os.environ.get(
-        "CORS_ALLOWED_ORIGINS",
-        "http://localhost:5173,http://127.0.0.1:5173"
-    ).split(",")
-    if origin.strip()
-]
+CORS_ALLOW_ALL_ORIGINS = True
 SECURE_SSL_REDIRECT = os.environ.get(
     "SECURE_SSL_REDIRECT", "False"
 ).lower() == "true"
