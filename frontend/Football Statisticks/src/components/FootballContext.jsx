@@ -2,6 +2,9 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const FootballContext = createContext();
 
+// Define your API base URL dynamically
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+
 export default function FootballProvider({ children }) {
     const [player, setPlayer] = useState([]);
     const [team, setTeam] = useState([]);
@@ -20,7 +23,7 @@ export default function FootballProvider({ children }) {
         }
 
         const response = await fetch(
-            "http://127.0.0.1:8000/footballapp/token/refresh/",
+            `${API_URL}/footballapp/token/refresh/`,
             {
                 method: "POST",
                 headers: {
@@ -94,24 +97,12 @@ export default function FootballProvider({ children }) {
                     playerStatsData,
                     teamStandingData,
                 ] = await Promise.all([
-                    fetchData(
-                        "http://127.0.0.1:8000/footballapp/player/"
-                    ),
-                    fetchData(
-                        "http://127.0.0.1:8000/footballapp/teams/"
-                    ),
-                    fetchData(
-                        "http://127.0.0.1:8000/footballapp/league/"
-                    ),
-                    fetchData(
-                        "http://127.0.0.1:8000/footballapp/match/"
-                    ),
-                    fetchData(
-                        "http://127.0.0.1:8000/footballapp/playerstats/"
-                    ),
-                    fetchData(
-                        "http://127.0.0.1:8000/footballapp/teamstanding/"
-                    ),
+                    fetchData(`${API_URL}/footballapp/player/`),
+                    fetchData(`${API_URL}/footballapp/teams/`),
+                    fetchData(`${API_URL}/footballapp/league/`),
+                    fetchData(`${API_URL}/footballapp/match/`),
+                    fetchData(`${API_URL}/footballapp/playerstats/`),
+                    fetchData(`${API_URL}/footballapp/teamstanding/`),
                 ]);
 
                 setPlayer(playerData);
@@ -134,10 +125,7 @@ export default function FootballProvider({ children }) {
 
     const fetchTeams = async () => {
         try {
-            const data = await fetchData(
-                "http://127.0.0.1:8000/footballapp/teams/"
-            );
-
+            const data = await fetchData(`${API_URL}/footballapp/teams/`);
             setTeam(data);
         } catch (err) {
             console.error(err);

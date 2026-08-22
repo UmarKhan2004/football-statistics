@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 
+// Define the environment variable at the top
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+
 function Signup() {
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
@@ -18,8 +21,9 @@ function Signup() {
 
         console.log(data);
 
+        // Replace http://127.0.0.1:8000 with ${API_URL}
         const response = await fetch(
-            "http://127.0.0.1:8000/footballapp/register/",
+            `${API_URL}/footballapp/register/`,
             {
                 method: "POST",
                 headers: {

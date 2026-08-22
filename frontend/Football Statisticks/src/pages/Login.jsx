@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import
  "./Login.css";
-
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 function Login() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -15,8 +15,8 @@ function Login() {
             password: password
         };
 
-        const response = await fetch(
-            "http://127.0.0.1:8000/footballapp/login/",
+       const response = await fetch(
+            `${API_URL}/footballapp/register/`,
             {
                 method: "POST",
                 headers: {
