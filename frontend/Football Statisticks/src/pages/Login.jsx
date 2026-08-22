@@ -16,7 +16,7 @@ function Login() {
         };
 
        const response = await fetch(
-            `${API_URL}/footballapp/register/`,
+            `${API_URL}/footballapp/login/`,
             {
                 method: "POST",
                 headers: {

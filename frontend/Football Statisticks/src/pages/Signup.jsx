@@ -23,7 +23,7 @@ function Signup() {
 
         // Replace http://127.0.0.1:8000 with ${API_URL}
         const response = await fetch(
-            `${API_URL}/footballapp/register/`,
+            `${API_URL}/footballapp/signup/`,
             {
                 method: "POST",
                 headers: {
