@@ -7,7 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
 export default function FootballProvider({ children }) {
     const [player, setPlayer] = useState([]);
-    const [team, setTeam] = useState([]);
+    const [teams, setTeams] = useState([]);
     const [league, setLeague] = useState([]);
     const [match, setMatch] = useState([]);
     const [playerStats, setPlayerStats] = useState([]);
@@ -137,7 +137,7 @@ export default function FootballProvider({ children }) {
         <FootballContext.Provider
             value={{
                 player,
-                teams: team,
+                teams,
                 league,
                 match,
                 teamStanding,
