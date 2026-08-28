@@ -106,7 +106,7 @@ export default function FootballProvider({ children }) {
                 ]);
 
                 setPlayer(playerData);
-                setTeam(teamData);
+                setTeams(teamData);
                 setLeague(leagueData);
                 setMatch(matchData);
                 setPlayerStats(playerStatsData);
@@ -126,7 +126,7 @@ export default function FootballProvider({ children }) {
     const fetchTeams = async () => {
         try {
             const data = await fetchData(`${API_URL}/footballapp/teams/`);
-            setTeam(data);
+            setTeams(data);
         } catch (err) {
             console.error(err);
             setError(err);
