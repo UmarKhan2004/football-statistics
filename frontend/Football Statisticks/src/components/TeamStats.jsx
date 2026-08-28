@@ -37,7 +37,7 @@ console.log(data,entry)
     })
      try {
         const response = await fetch(
-            "http://127.0.0.1:8000/footballapp/teams/",
+            "https://football-statistics-1.onrender.com/footballapp/teams/",
             {
                 method: "POST",
                 headers: {
