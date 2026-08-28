@@ -6,7 +6,7 @@ import { NavLink, Link } from "react-router-dom";
 import { useState,useContext } from "react";
 import { FootballContext } from "./FootballContext";
 function Navbar() {
-        const{player,league,team}=useContext(FootballContext)
+        const{player,league,teams}=useContext(FootballContext)
         const [search, setSearch] = useState("");
 const [showResults, setShowResults] = useState(false);
 const results = [

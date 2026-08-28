@@ -4,7 +4,7 @@ import { FootballContext } from "./FootballContext";
 import { FaHamburger,FaCalendar } from "react-icons/fa";
 import "./MatchList.css"
 function MatchList(){
-    const{player,match,team,league,loading}=useContext(FootballContext)
+    const{player,match,teams,league,loading}=useContext(FootballContext)
 return(
     <>
     <div className="section-headers">

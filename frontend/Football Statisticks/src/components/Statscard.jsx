@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "../App.css"
 import {FootballContext} from "./FootballContext";
 function Statscard(){
-  const{player,team,match}=useContext(FootballContext);
+  const{player,teams,match}=useContext(FootballContext);
   const totalGoals=player.reduce((sum,p)=>sum+p.goals,0);
   const topScorer=[...player].sort((a,b)=>b.goals-a.goals)[0];
     return(
