@@ -137,7 +137,7 @@ export default function FootballProvider({ children }) {
         <FootballContext.Provider
             value={{
                 player,
-                team,
+                teams: team,
                 league,
                 match,
                 teamStanding,
