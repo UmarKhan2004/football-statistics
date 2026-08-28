@@ -15,7 +15,7 @@ function Statscard(){
               <p>Players</p>
             </div>
             <div className="stats-cards">
-              <h1>{team.length}</h1>
+              <h1>{teams.length}</h1>
               <p>Teams</p>
             </div>
             <div className="stats-cards">
