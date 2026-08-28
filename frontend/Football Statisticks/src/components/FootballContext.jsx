@@ -23,7 +23,7 @@ export default function FootballProvider({ children }) {
         }
 
         const response = await fetch(
-            `${API_URL}/footballapp/token/refresh/`,
+            `${API_URL}/footballapp/refresh/`,
             {
                 method: "POST",
                 headers: {
@@ -47,82 +47,87 @@ export default function FootballProvider({ children }) {
     };
 
     const fetchData = async (url) => {
-        let accessToken = localStorage.getItem("access");
+    let accessToken = localStorage.getItem("access");
 
-        let response = await fetch(url, {
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-            },
+    const makeRequest = async (token) => {
+        const headers = {};
+
+        if (token) {
+            headers.Authorization = `Bearer ${token}`;
+        }
+
+        return fetch(url, {
+            headers,
         });
-
-        // Access token expired
-        if (response.status === 401) {
-            accessToken = await refreshAccessToken();
-
-            // Refresh token also failed
-            if (!accessToken) {
-                localStorage.removeItem("access");
-                localStorage.removeItem("refresh");
-
-                window.location.href = "/login";
-
-                throw new Error("Session expired");
-            }
-
-            // Try the original request again
-            response = await fetch(url, {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-        }
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(JSON.stringify(data));
-        }
-
-        return data;
     };
 
-    useEffect(() => {
-        const loadData = async () => {
-            try {
-                const [
-                    playerData,
-                    teamData,
-                    leagueData,
-                    matchData,
-                    playerStatsData,
-                    teamStandingData,
-                ] = await Promise.all([
-                    fetchData(`${API_URL}/footballapp/player/`),
-                    fetchData(`${API_URL}/footballapp/teams/`),
-                    fetchData(`${API_URL}/footballapp/league/`),
-                    fetchData(`${API_URL}/footballapp/match/`),
-                    fetchData(`${API_URL}/footballapp/playerstats/`),
-                    fetchData(`${API_URL}/footballapp/teamstanding/`),
-                ]);
+    let response = await makeRequest(accessToken);
 
-                setPlayer(playerData);
-                setTeams(teamData);
-                setLeague(leagueData);
-                setMatch(matchData);
-                setPlayerStats(playerStatsData);
-                setTeamStanding(teamStandingData);
+    if (response.status === 401 && accessToken) {
+        accessToken = await refreshAccessToken();
 
-                setLoading(false);
-            } catch (err) {
-                console.error(err);
-                setError(err);
-                setLoading(false);
-            }
-        };
+        if (!accessToken) {
+            localStorage.removeItem("access");
+            localStorage.removeItem("refresh");
 
-        loadData();
-    }, []);
+            window.location.href = "/login";
 
+            throw new Error("Session expired");
+        }
+
+        response = await makeRequest(accessToken);
+    }
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(JSON.stringify(data));
+    }
+
+    return data;
+};
+   useEffect(() => {
+    const loadData = async () => {
+        const accessToken = localStorage.getItem("access");
+
+        if (!accessToken) {
+            setLoading(false);
+            return;
+        }
+
+        try {
+            const [
+                playerData,
+                teamData,
+                leagueData,
+                matchData,
+                playerStatsData,
+                teamStandingData,
+            ] = await Promise.all([
+                fetchData(`${API_URL}/footballapp/player/`),
+                fetchData(`${API_URL}/footballapp/teams/`),
+                fetchData(`${API_URL}/footballapp/league/`),
+                fetchData(`${API_URL}/footballapp/match/`),
+                fetchData(`${API_URL}/footballapp/playerstats/`),
+                fetchData(`${API_URL}/footballapp/teamstanding/`),
+            ]);
+
+            setPlayer(playerData);
+            setTeams(teamData);
+            setLeague(leagueData);
+            setMatch(matchData);
+            setPlayerStats(playerStatsData);
+            setTeamStanding(teamStandingData);
+        } catch (err) {
+            console.error(err);
+            setError(err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    loadData();
+}, []);
     const fetchTeams = async () => {
         try {
             const data = await fetchData(`${API_URL}/footballapp/teams/`);

@@ -10,11 +10,31 @@ import "./League.css"
 import { FaTrophy,FaSave,FaCalendar, FaFootballBall } from "react-icons/fa";
 import { FootballContext } from "../components/FootballContext";
 function League() {
-    const{league,team,match}=useContext(FootballContext)
-    console.log(league)
-    const completedMatches=match.filter(m=>m.completed)
-    const totalGoals=completedMatches.reduce((total,m)=>total+m.home_score+m.away_score,0)
-const aveargeGoals=completedMatches.length>0?(totalGoals/completedMatches.length).toFixed(2):0
+   const {
+    league = [],
+    teams = [],
+    match = []
+} = useContext(FootballContext);
+
+console.log("League:", league);
+console.log("Teams:", teams);
+console.log("Match:", match);
+
+const safeLeague = Array.isArray(league) ? league : [];
+const safeTeams = Array.isArray(teams) ? teams : [];
+const safeMatch = Array.isArray(match) ? match : [];
+
+const completedMatches = safeMatch.filter(m => m.completed);
+
+const totalGoals = completedMatches.reduce(
+    (total, m) => total + (m.home_score || 0) + (m.away_score || 0),
+    0
+);
+
+const aveargeGoals =
+    completedMatches.length > 0
+        ? (totalGoals / completedMatches.length).toFixed(2)
+        : 0;
     return (
         <>
                 <Navbar />
@@ -32,15 +52,15 @@ const aveargeGoals=completedMatches.length>0?(totalGoals/completedMatches.length
                         </nav>
                     <div className="league-card-container">
                         <div className="league-card">
-                            <FaTrophy/><h1>{league.length}</h1>
+                            <FaTrophy/><h1>{safeLeague.length}</h1>
                             <p>Total Leagues</p>
                         </div>
                         <div className="league-card">
-                    <FaSave/><h1>{team.length}</h1>
+                    <FaSave/><h1>{safeTeams.length}</h1>
                     <p>Total Teams Accross all leagues</p>
                         </div>
                         <div className="league-card">
-                    <FaCalendar/><h1>{match.length}</h1>
+                    <FaCalendar/><h1>{safeMatch.length}</h1>
                     <p>Total matches This season</p>
                         </div>
                         <div className="league-card">
