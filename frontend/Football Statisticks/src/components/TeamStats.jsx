@@ -33,7 +33,7 @@ function TeamStats() {
         data.append("short_name", formData.short_name);
         data.append("league", formData.league);
         data.append("founded_year", formData.founded_year);
-        
+
         // Only append logo if a file was selected
         if (formData.logo) {
             data.append("logo", formData.logo);
@@ -79,7 +79,11 @@ function TeamStats() {
     const [searchQuerry, setSearchQuerry] = useState("");
 
     // 2. Filter over 'teams' (or fallback to 'teamStanding' if teams isn't populated yet)
-    const dataSource = (teams && teams.length > 0) ? teams : (teamStanding || []);
+    const dataSource = Array.isArray(teams) && teams.length > 0
+        ? teams
+        : Array.isArray(teamStanding)
+            ? teamStanding
+            : [];
 
     const filteredTeam = dataSource.filter((item) => {
         const querry = searchQuerry.toLowerCase();
